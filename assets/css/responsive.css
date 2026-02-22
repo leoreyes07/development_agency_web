@@ -21,10 +21,11 @@
         padding-bottom: 30rem;
     }
 
-/*     .menu_mobile {
+    .menu_mobile {
         visibility: hidden;
         opacity: 0;
-    } */
+        transform: translateX(-100%);
+    }
 
     .services_service {
         padding: 8rem 5rem;
@@ -32,10 +33,11 @@
 }
 
 @media (min-width: 1201px) and (max-width: 1599px) {
-/*     .menu_mobile {
+    .menu_mobile {
         visibility: hidden;
         opacity: 0;
-    } */
+        transform: translateX(-100%);
+    }
 
     .navbar_mobile-btn {
         display: none;
@@ -134,10 +136,20 @@
         padding-bottom: 7rem;
     }
 
-/*     .menu_mobile {
+    .menu_mobile {
         visibility: hidden;
         opacity: 0;
-    } */
+        transform: translateX(-100%);
+    }
+}
+
+@media (min-width: 1000px) {
+    .menu_mobile {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(-100%);
+    }
 }
 
 @media (max-width: 1000px) {
@@ -389,6 +401,30 @@
 
     .flinks_item-separator::after {
         left: 52.6%;
+    }
+}
+
+@media (max-width: 999px) {
+    .menu_mobile {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 28rem;
+        height: 100vh;
+        max-width: 85%;
+        height: 100vh;
+        background-color: #ffffff;
+        z-index: 9999;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: all 400ms ease;
+    }
+
+    .menu_mobile-show {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
@@ -705,7 +741,7 @@
     .projects_category {
         gap: 4rem;
     }
-    
+
     .review_description {
         font-size: 1.5rem;
         line-height: 1;
@@ -717,11 +753,11 @@
         margin-bottom: 3rem;
     }
 
-    .service_more, 
+    .service_more,
     .news_more {
         font-size: 1.5rem;
     }
-    
+
     .stats_data {
         padding: 5rem 2rem;
     }
@@ -738,15 +774,15 @@
         font-size: 3.9rem;
     }
 
-    .stats_title, 
+    .stats_title,
     .clients_title {
         font-size: 3.9rem;
     }
 
-    .stats_container, 
-    .reviews_grid, 
-    .clients_container, 
-    .news_container, 
+    .stats_container,
+    .reviews_grid,
+    .clients_container,
+    .news_container,
     .footer_container {
         padding-left: 1rem;
         padding-right: 1rem;
@@ -786,12 +822,12 @@
     .projects_category {
         gap: 3rem;
     }
-    
+
     .review_description {
         font-size: 1.4rem;
         line-height: 1;
     }
-    
+
     .stats_data {
         padding: 4rem 2rem;
     }

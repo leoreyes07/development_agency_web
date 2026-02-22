@@ -1,52 +1,47 @@
-document.addEventListener("DOMContentLoaded", (event) => {
-    /* Seleccciona los dos elementos principales */
-    let mobile_btn = document.querySelector(".navbar_mobile-btn")
-    let mobile_menu = document.querySelector(".menu_mobile")
+document.addEventListener("DOMContentLoaded", () => {
 
-    /* funcion mostrar/ocultar menu */
-    const showHiddenMenu = () => {
-        let show = document.querySelector(".menu_mobile-show");
+    const mobile_btn = document.querySelector(".navbar_mobile-btn");
+    const mobile_menu = document.querySelector(".menu_mobile");
+    const btn_close = document.querySelector(".menu_mobile-close");
+    const menu_items = document.querySelectorAll(".menu_mobile-item");
 
-        if (show) {
-            mobile_menu.classList.remove("menu_mobile-show");
-        } else {
-            mobile_menu.classList.add("menu_mobile-show");
+    // Función mostrar / ocultar menú
+    const toggleMenu = () => {
+        if (mobile_menu) {
+            mobile_menu.classList.toggle("menu_mobile-show");
         }
     };
 
-    /* Click al boton de menu mostrar el menu de navegacion responsive*/
-    mobile_btn.addEventListener("click", showHiddenMenu)
+    // Abrir menú
+    if (mobile_btn) {
+        mobile_btn.addEventListener("click", toggleMenu);
+    }
 
-    /* Al redimencionarla pantalla ocultar menu si es necesario */
+    // Cerrar menú con botón X
+    if (btn_close) {
+        btn_close.addEventListener("click", toggleMenu);
+    }
+
+    // Cerrar menú automáticamente si pasa a desktop
     window.addEventListener("resize", () => {
-        let window_width = parseInt(document.body.clientWidth);
-
-        if (window_width >= 1000) {
+        if (window.innerWidth >= 1000 && mobile_menu) {
             mobile_menu.classList.remove("menu_mobile-show");
         }
     });
 
-    /* Poder cerra el menu con boton X */
-    let btn_close = document.querySelector(".menu_mobile-close");
-    
-    btn_close.addEventListener("click", showHiddenMenu);
+    // Submenús desplegables
+    menu_items.forEach(item => {
+        item.addEventListener("click", (e) => {
 
-    /* Desplegar submenus */
-    let menu_item = document.querySelectorAll(".menu_mobile-item");
+            const submenu = item.querySelector(".submenu_mobile");
 
-    menu_item.forEach(item => {
+            if (submenu) {
+                e.stopPropagation();
 
-       item.addEventListener("click", (event) => {
-            let submenu = item.lastElementChild;
-            
-            if(submenu.className === "submenu_mobile"){
-                if(submenu.style.display === "block"){
-                    submenu.style.display = "none";
-                }else{
-                    submenu.style.display = "block";
-                }
+                submenu.style.display =
+                    submenu.style.display === "block" ? "none" : "block";
             }
-       }) 
+        });
     });
-    
-})
+
+});
