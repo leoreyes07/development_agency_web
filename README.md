@@ -20,7 +20,7 @@ A professional, responsive landing page designed for a modern Digital Developmen
 - **Frontend:** HTML5, CSS3, JavaScript (ES6+)
 - **Styling:** [e.g., Sass, Tailwind CSS, or Bootstrap]
 - **Icons:** FontAwesome / Boxicons
-- **Deployment:** [e.g., GitHub Pages / Vercel / Netlify]
+- **Deployment:** [e.g., GitHub Pages]
 
 ## 📋 Prerequisites
 
